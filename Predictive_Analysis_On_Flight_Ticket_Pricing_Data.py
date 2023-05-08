@@ -110,7 +110,7 @@ featVect = VectorAssembler(inputCols=["idxCatFeatures","normFeatures"],outputCol
 # MAGIC ## Gradient Boosted Tree Sample
 
 # COMMAND ----------
-
+gbt = GBTRegressor(labelCol="baseFare", featuresCol="features")
 paramGrid = ParamGridBuilder() \
     .addGrid(gbt.maxDepth, [8, 12]) \
     .addGrid(gbt.minInfoGain, [0.0]) \
@@ -133,7 +133,7 @@ import time
 current_time = time.strftime("%Y-%m-%d %H:%M:%S")
 print("Time Start:", current_time)
 
-tv = TrainValidationSplit(estimator=pipeline, evaluator=gbt_evaluator,estimatorParamMaps=paramGrid, trainRatio=0.8)
+tv = TrainValidationSplit(estimator=pipeline, evaluator=rf_evaluator,estimatorParamMaps=paramGrid, trainRatio=0.8)
 model = tv.fit(train)
 
 current_time = time.strftime("%Y-%m-%d %H:%M:%S")
