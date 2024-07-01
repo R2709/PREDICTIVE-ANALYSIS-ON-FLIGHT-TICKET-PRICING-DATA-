@@ -1,4 +1,4 @@
-# CIS5560 PREDICTIVE ANALYSIS ON FLIGHT TICKET PRICING DATA
+# Predictive Analysis On Flight Ticket Price
 
 Airline dataset can be used to predict and determine the price of different airlines, helping airlines optimize their pricing strategies for specific routes and seasons.​
 
